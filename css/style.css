@@ -9,7 +9,7 @@ body{
 }
 
 #home-section {
-    background-image: url('images/home.jpg');
+    background-image: url('../images/home.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -46,4 +46,3 @@ body{
     padding: 5px;
     border-radius: 5px;
 }
-
