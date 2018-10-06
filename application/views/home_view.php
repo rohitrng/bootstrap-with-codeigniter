@@ -80,21 +80,30 @@
                         <div class="card-body">
                             <h3>Sign Up Today!</h3>
                             <p>Please fill out this form to register</p>
-                            <form action="#">
+                                <?php if($this->session->flashdata('success')):?>
+                                        <p class="alert alert-success"><?php echo $this->session->flashdata('success'); ?></p>
+                                <?php endif; ?>
+
+                                <?php if($this->session->flashdata('unsuccess')): ?>
+                                        <p class="alert alert-danger"><?php echo $this->session->flashdata('unsuccess'); ?></p>
+                                <?php endif; ?>
+
+                            <?php echo form_open('Home/insert'); ?>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" placeholder="Username">
+                                    <?php echo form_input(['name'=>'username','class'=>'form-control form-control-lg','placeholder'=>'UserName']); ?>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-lg" placeholder="Email">
+                                    <?php echo form_input(['name'=>'email','class'=>'form-control form-control-lg','placeholder'=>'Email']); ?>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" placeholder="Password">
+                                    <?php echo form_password(['name'=>'password','class'=>'form-control form-control-lg','placeholder'=>'Password']); ?>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" placeholder="Conform Password">
+                                    <?php echo form_password(['name'=>'password','class'=>'form-control form-control-lg','placeholder'=>'Conform Password']); ?>
                                 </div>
-                                <input type="submit" value="Submit" class="btn btn-outline-light btn-block">
-                            </form>
+                                    <?php echo form_submit(['value'=>'Submit','class'=>'btn btn-outline-light btn-block']) ?>
+                            <?php echo form_close(); ?>
+
                         </div>
                     </div>
                 </div>
@@ -311,5 +320,4 @@
     });
 </script>
 </body>
-
 </html>
